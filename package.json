@@ -1,0 +1,14 @@
+{
+  "name": "electron",
+  "version": "1.0.0",
+  "description": "Get started by customizing your environment (defined in the .idx/dev.nix file) with the tools and IDE extensions you'll need for your project!",
+  "main": "index.js",
+  "scripts": {
+    "start-electron": "npm run build-react && cd src/electron && npm run build-ts && electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-react": "cd src/ui && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
