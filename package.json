@@ -1,14 +1,20 @@
 {
-  "name": "electron",
+  "name": "notiq",
   "version": "1.0.0",
-  "description": "Get started by customizing your environment (defined in the .idx/dev.nix file) with the tools and IDE extensions you'll need for your project!",
-  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "start-electron": "npm run build-react && cd src/electron && npm run build-ts && electron .",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build-react": "cd src/ui && npm run build"
+    "start": "cross-env NODE_ENV=production electron packages/main/dist/index.js",
+    "dev:main": "cross-env NODE_ENV=development electron packages/main/dist/index.js",
+    "build": "npm run build:renderer && npm run build:main",
+    "build:main": "cd packages/main && tsc",
+    "build:renderer": "cd packages/renderer && vite build",
+    "dev": "concurrently \"npm run dev:renderer\" \"npm run dev:main\"",
+    "dev:renderer": "cd packages/renderer && vite"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "devDependencies": {
+    "cross-env": "^7.0.3"
+  }
 }
