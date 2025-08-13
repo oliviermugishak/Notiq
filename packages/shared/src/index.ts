@@ -7,3 +7,7 @@ export interface IpcChannels {
 export interface SharedTypes {
   // Add your shared type definitions here
 }
+
+export const readAll = () => {
+  console.log("Reading all");
+};

@@ -1,9 +1,10 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
+import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [tailwindcss(), react()],
   base: "./",
   build: {
     outDir: "dist",
@@ -20,11 +21,3 @@ export default defineConfig({
     },
   },
 });
-/*
-  "scripts": {
-    "dev": "npm run dev:renderer & npm run dev:main",
-    "dev:main": "npm run dev -w @notiq/main",
-    "dev:renderer": "npm run dev -w @notiq/renderer",
-    "build": "npm run build --workspaces",
-    "start": "npm run start -w @notiq/main"
-  }*/
